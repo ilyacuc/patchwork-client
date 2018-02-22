@@ -1,0 +1,27 @@
+.root {
+    line-height: 0;
+}
+
+.row {
+    display: block;
+}
+
+.cell {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    opacity: 0.8;
+    background-color: #c7fffd;
+}
+
+.empty_cell {
+    background-color: transparent;
+}
+
+.active_cell {
+    cursor: pointer;
+    opacity: 1;
+}
+.active_cell:hover {
+    box-shadow: 1px 1px 3px rgba(37, 206, 255, 0.28);
+}
