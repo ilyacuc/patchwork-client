@@ -1,6 +1,6 @@
 export default class Tile {
     /**
-     *
+     * @param {string} id
      * @param {Array.<Array>} struct
      * @param {number} price
      * @param {number} timePrice

@@ -1,0 +1,27 @@
+.root {
+    line-height: 0;
+    position: relative;
+    display: inline-block;
+}
+
+.row {
+    display: block;
+}
+
+.cell {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    border: 1px solid rgba(238, 244, 32, 0.37);
+    box-sizing: border-box;
+    line-height: 40px;
+    background-color: white;
+}
+
+.cell_invalid {
+    background-color: rgba(255, 169, 30, 0.58);
+}
+
+.cell_valid {
+    background-color: rgba(108, 255, 60, 0.58);
+}

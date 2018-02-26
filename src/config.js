@@ -42,3 +42,5 @@ export default {
     tilesBreakPoints: [],
     timeBoardLength: 40
 }
+
+export const CELL_SIZE = 40;

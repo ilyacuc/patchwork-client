@@ -26,5 +26,8 @@
       "Firefox ESR",
       "not ie < 11"
     ]
+  },
+  "devDependencies": {
+    "prop-types": "latest"
   }
 }

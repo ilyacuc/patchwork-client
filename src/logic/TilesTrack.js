@@ -9,7 +9,7 @@ export default class TilesTrack {
         let position = 0;
         let min = Infinity;
         config.forEach((tile, index) => {
-            this.tilesList.push(new Tile(index, tile));
+            this.tilesList.push(new Tile(`t${index}`, tile));
 
             const tileSize = tile.struct.reduce((result, tileRow) => result + tileRow.reduce((r, cell) => r + cell, 0), 0);
             if (tileSize < min) {
