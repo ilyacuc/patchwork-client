@@ -7,8 +7,8 @@ export default class Board extends PureComponent {
     static propTypes = {
         board: PropTypes.array,
         draggedCell: PropTypes.object,
-        draggedTile: PropTypes.object,
-        setAppState: PropTypes.func
+        draggedTileStruct: PropTypes.arrayOf(PropTypes.array),
+        setActiveTilePosition: PropTypes.func
     };
 
     constructor(props) {
@@ -33,22 +33,21 @@ export default class Board extends PureComponent {
         //     tileX: null,
         //     tileY: null
         // });
-        this.props.setAppState({
-            activeTilePosition: {
+        this.props.setActiveTilePosition({
                 x: this.state.tileX,
-                y: this.state.tileY
+                y: this.state.tileY,
             }
-        });
+        );
         console.log('handleDrop', event, event.target);
     };
 
     render() {
         const highlightedCells = [];
         let isValidPlace = true;
-        const { draggedTile } = this.props;
+        const { draggedTileStruct } = this.props;
 
-        if (draggedTile) {
-            const tile = draggedTile.struct;
+        if (draggedTileStruct) {
+            const tile = draggedTileStruct;
             const width = tile[0].length;
             const height = tile.length;
             for (let i = 0; i < height; i++) {

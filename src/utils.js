@@ -1,5 +1,5 @@
 export function rotateMatrix(matrix, angle) {
-    const rotate = angle % 360 / 90;
+    const rotate = (360 + angle % 360) % 360 / 90;
     switch (rotate) {
         case 1:
             return rotateClockwise(matrix);

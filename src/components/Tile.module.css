@@ -1,6 +1,8 @@
 .root {
     line-height: 0;
     cursor: pointer;
+    transition-duration: .3s;
+    transform-origin: top left;
 }
 
 .picked .cell {

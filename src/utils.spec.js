@@ -1,4 +1,4 @@
-import { rotateClockwise, rotateCounterClockwise } from './utils';
+import { rotateMatrix, rotateClockwise, rotateCounterClockwise } from './utils';
 
 const matrix = [
     [1, 2, 3, 4],
@@ -11,6 +11,14 @@ const newMatrix = [
     ['b', 7, 3],
     ['c', 8, 4]
 ];
+
+it('rotate -270', () => {
+    expect(rotateMatrix(matrix, -270)).toEqual(newMatrix);
+});
+
+it('rotate 90', () => {
+    expect(rotateMatrix(matrix, 90)).toEqual(newMatrix);
+});
 
 it('rotate 90 clockwise', () => {
     expect(rotateClockwise(matrix)).toEqual(newMatrix);

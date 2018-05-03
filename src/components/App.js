@@ -3,6 +3,7 @@ import './App.css';
 import TilesTrack from './TilesTrack';
 import Board from './Board';
 import ActiveTile from './ActiveTile';
+import { rotateMatrix } from '../utils';
 
 class App extends Component {
     constructor(props) {
@@ -20,6 +21,11 @@ class App extends Component {
         this.setState(object)
     };
 
+    setActiveTilePosition = (object) => {
+        const current = this.state.activeTilePosition || { x: 0, y: 0, r: 0, f: false };
+        this.setState({ activeTilePosition: { ...current, ...object } })
+    };
+
     makeMove = () => {
         const { activeTileId, activeTilePosition } = this.state;
         this.props.makeMoveTile(activeTileId, activeTilePosition);
@@ -29,7 +35,11 @@ class App extends Component {
         const { draggedCell, activeTileId, activeTilePosition } = this.state;
         const tiles = this.props.tilesTrack.tilesList;
         const board = this.props.activePlayer.board.board;
+        let draggedTileStruct;
         const tile = tiles.find(({ id }) => id === this.state.draggedTileId);
+        if (tile) {
+            draggedTileStruct = activeTilePosition ? rotateMatrix(tile.struct, activeTilePosition.r) : tile.struct;
+        }
         const activeTile = tiles.find(({ id }) => id === this.state.activeTileId);
         return (
             <div className="App">
@@ -39,14 +49,14 @@ class App extends Component {
                 <TilesTrack tiles={tiles} setAppState={this.setAppState} activeTileId={activeTileId} />
                 <Board
                     board={board}
-                    draggedTile={tile}
-                    activeTile={activeTile}
+                    draggedTileStruct={draggedTileStruct}
                     draggedCell={draggedCell}
-                    setAppState={this.setAppState}>
+                    setActiveTilePosition={this.setActiveTilePosition}>
                     {Boolean(activeTile) &&
                     <ActiveTile
                         activeTile={activeTile}
                         setAppState={this.setAppState}
+                        setActiveTilePosition={this.setActiveTilePosition}
                         activeTilePosition={activeTilePosition} />}
                 </Board>
                 <div>

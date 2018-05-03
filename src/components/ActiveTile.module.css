@@ -1,3 +1,23 @@
 .root {
     position: absolute;
+    display: table;
+}
+
+.rotateCounterClockwise {
+    left: -30px;
+    position: absolute;
+}
+
+.rotateClockwise {
+    right: -30px;
+    position: absolute;
+}
+
+.flip {
+    top: -30px;
+    position: absolute;
+}
+
+.tileWrapper {
+
 }

@@ -11,6 +11,15 @@ export default {
         },
         {
             struct: [
+                [1, 1, 1],
+                [1, 0, 1]
+            ],
+            price: 2,
+            timePrice: 3,
+            coins: 1
+        },
+        {
+            struct: [
                 [1, 1, 1, 1],
             ],
             price: 4,
